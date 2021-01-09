@@ -6,11 +6,19 @@ body {
 .grid {
   display: grid;
   margin-bottom: 2rem;
+  align-items: stretch;
+  justify-items: stretch;
 }
 
 .grid > * {
   background-color: rgb(247, 212, 16);
   border: 1px solid rgb(219, 149, 19);
+  place-self: stretch;
+
+  /* Center content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .basic-grid.grid {
@@ -77,9 +85,9 @@ body {
 
 .grid.template {
   grid-template:
-    [row1-start] "header header header" 25px [row1-end]
-    [row2-start] "footer footer footer" 25px [row2-end]
-    / auto 50px auto;
+    "header header header" 25px
+    "sidebar main main" 25px
+    "sidebar main main" 25px / 1fr 1fr 1fr;
 }
 
 .grid.gaps {
