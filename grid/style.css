@@ -1,0 +1,11 @@
+.container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+
+.container > * {
+    background-color: pink;
+    grid-column: auto;
+    grid-row: auto;
+}
