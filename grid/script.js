@@ -7,6 +7,7 @@ function makeItems ({ el, n }) {
   for (let i = 1; i <= n; i++) {
     const span = document.createElement('span')
     span.textContent = i
+    span.setAttribute('data-i', i)
     el.appendChild(span)
   }
 }

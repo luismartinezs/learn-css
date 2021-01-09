@@ -11,11 +11,43 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div data-n=4 class="grid basic-grid">
+    <div>All options auto</div>
+    <div data-n="4" class="grid basic-grid"></div>
+    <div>grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));</div>
+    <div data-n="4" class="grid fluid-cols"></div>
+    <div>grid-template-columns: 40px 50px auto 50px 40px;</div>
+    <div>grid-template-rows: 25% 100px auto;</div>
+    <div data-n="15" class="grid g3x5"></div>
+    <div>grid-template-columns: 1fr 50px 1fr 1fr;</div>
+    <div data-n="4" class="grid g1x4"></div>
+    <div>grid-template-areas</div>
+    <div class="grid areas">
+      <span class="header">Header</span>
+      <span class="main">Main</span>
+      <span class="sidebar">Sidebar</span>
+      <span class="footer">Footer</span>
     </div>
-    <div data-n=4 class="grid fluid-cols">
+    <div>grid-template</div>
+    <div class="grid template">
+      <span class="header">Header</span>
+      <span class="footer">Footer</span>
     </div>
-    <div data-n=15 class="grid test js-3x5"></div>
+    <div>Column and row gap</div>
+    <div data-n="9" class="grid gaps"></div>
+    <div>Grid auto columns</div>
+    <div data-n="3" class="grid auto-col"></div>
+    <div>Grid auto flow row</div>
+    <div data-n="5" class="grid auto-flow row"></div>
+    <div>Grid auto flow column</div>
+    <div data-n="5" class="grid auto-flow column"></div>
+    <div>grid-[row|column]-[start|end] / grid-area</div>
+    <div data-n="2" class="grid col-row-start-end"></div>
+    <div>grid-template-columns: 200px 1fr 2fr min-content max-content;</div>
+    <div data-n="5" class="grid min-content"></div>
+    <div>grid-template-columns: 1fr minmax(300px, 1fr);</div>
+    <div data-n="5" class="grid minmax"></div>
+    <div>grid-template-columns: repeat(10, 1fr);</div>
+    <div data-n="25" class="grid repeat"></div>
     <script src="script.js"></script>
   </body>
 </html>

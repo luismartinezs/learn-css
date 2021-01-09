@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  font-family: sans-serif;
 }
 
 .grid {
@@ -27,7 +28,150 @@ body {
   grid-gap: 1rem;
 }
 
-.grid.test {
+.grid.g3x5 {
+  /* Without named lines */
   grid-template-columns: 40px 50px auto 50px 40px;
   grid-template-rows: 25% 100px auto;
+
+  /* The same with named lines */
+  /* Lines can have more than one name */
+  grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+  grid-template-rows: [row1-start] 25% [row1-end row2-start] 100px [third-line] auto [last-line];
+}
+
+.grid.g3x5 > span[data-i="2"] {
+  /* Will make 2nd item start by first line */
+  /* the 1 means: "if more than one column is named `first`, then use the first one" */
+  /* grid-column-start: first 1; */
+}
+
+.grid.g1x4 {
+  /* fr spreads content in available space, after absolute sizes */
+  grid-template-columns: 1fr 50px 1fr 1fr;
+}
+
+.grid.areas {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header header header"
+    "main main . sidebar"
+    "footer footer footer footer";
+}
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.grid.template {
+  grid-template:
+    [row1-start] "header header header" 25px [row1-end]
+    [row2-start] "footer footer footer" 25px [row2-end]
+    / auto 50px auto;
+}
+
+.grid.gaps {
+  grid-template-columns: 100px 50px 100px;
+  grid-template-rows: 80px auto 80px;
+  /* Sets gap size */
+  column-gap: 10px;
+  row-gap: 15px;
+  /* Next is same */
+  gap: 15px 10px;
+}
+
+.grid.auto-col {
+  grid-auto-columns: 60px;
+  background-color: rgb(247, 237, 206);
+}
+
+.grid.auto-col > span[data-i="1"] {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.grid.auto-col > span[data-i="2"] {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+}
+
+.grid.auto-col > span[data-i="3"] {
+  grid-column: 4 / 5;
+  grid-row: 1 / 2;
+}
+
+.grid.auto-flow {
+  grid-template-columns: 60px 60px 60px 60px 60px;
+  grid-template-rows: 30px 30px;
+}
+
+.grid.auto-flow.row {
+  grid-template-columns: 60px 60px 60px 60px 60px;
+  grid-template-rows: 30px 30px;
+  grid-auto-flow: row;
+}
+
+.grid.auto-flow.column {
+  grid-template-columns: 60px 60px 60px 60px 60px;
+  grid-template-rows: 30px 30px;
+  grid-auto-flow: column;
+}
+
+.grid.auto-flow > span[data-i="1"] {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.grid.auto-flow > span[data-i="2"] {
+  grid-column: 5;
+  grid-row: 1 / 3;
+}
+
+.grid.col-row-start-end > [data-i="1"] {
+  opacity: 0.5;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.grid.col-row-start-end > [data-i="2"] {
+  opacity: 0.5;
+
+  grid-column-start: 1;
+  grid-column-end: span 4;
+  /* Shorthand: */
+  grid-column: 1 / span 4;
+
+  grid-row-start: 2;
+  grid-row-end: span 2;
+  /* Shorthand: */
+  grid-row: 2 / span 2;
+
+  /* Shorter shorthand */
+  grid-area: 2 / 1 / span 2 / span 4;
+}
+
+.grid.min-content {
+  grid-template-columns: 200px 1fr 2fr min-content max-content;
+}
+
+.grid.minmax {
+  grid-template-columns: 1fr minmax(300px, 1fr);
+}
+
+.grid.repeat {
+  grid-template-columns: repeat(10, 1fr);
 }
