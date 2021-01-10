@@ -1,28 +1,50 @@
+body {
+  font-family: sans-serif;
+}
+
 .wrapper {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 .grid {
   display: grid;
-  grid-auto-columns: 5;
-  background-color: rgb(238, 242, 245);
-  align-items: stretch;
-  justify-items: stretch;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(4, minmax(100px, auto));
+  border: 2px solid rgb(92, 161, 189);
+  background-color: rgb(223, 231, 238);
 }
 
-.grid > * {
-  background-color: rgb(247, 212, 16);
-  border: 1px solid rgb(219, 149, 19);
-  place-self: stretch;
-  height: 5rem;
-
-  /* Center content */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.item {
+  display: grid;
+  grid-column: 2 / 7;
+  grid-row: 2 / 4;
+  border: 1px solid rgb(69, 122, 190);
+  background-color: rgb(172, 199, 240);
 }
 
-.g4x5 {
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+.subgrid-col {
+  grid-template-columns: subgrid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.subgrid-row {
+    grid-template-columns:  repeat(7, 1fr);
+    grid-template-rows: subgrid;
+  }
+
+.subgrid-both {
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+
+.subitem {
+  grid-column: 3 / 6;
+  grid-row: 1 / 2;
+  border: 1px solid rgb(190, 148, 69);
+  background-color: rgb(240, 203, 172);
+}
+
+.child {
+  border: 1px solid rgb(190, 148, 69);
+  background-color: rgb(240, 203, 172);
 }
