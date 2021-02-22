@@ -1,6 +1,22 @@
 body {
   text-align: center;
   font-family: sans-serif;
+  margin: auto;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flex-center {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid {
@@ -178,4 +194,12 @@ body {
 
 .grid.repeat {
   grid-template-columns: repeat(10, 1fr);
+}
+
+.grid.center {
+  grid-template-columns: repeat(3, min-content);
+}
+
+.grid.center > * {
+  width: 200px;
 }
