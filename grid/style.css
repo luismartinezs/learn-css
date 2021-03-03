@@ -231,3 +231,44 @@ body {
   grid-row: span 2;
   grid-column: span 1;
 }
+
+/* Source: https://dev.to/bholmesdev/flexbox-diehards-here-s-some-concrete-examples-of-when-css-grid-is-just-better-n7k */
+.outer-container {
+  display: grid;
+  /* use template-areas to define the structure of our 2 column page */
+  /*                                        col 1 | col 2                                                          */
+  grid-template-areas:
+    "header   header" /* row 1 (just the header h1) */
+    "tagline  form" /* row 2 (tagline text, start of form) */
+    "image    form" /* row 3 (image, form continues) */
+    "address  form"; /* row 4 (address, end of form) */
+}
+
+/* assign each element to  a unique area on our grid */
+h1 {
+  grid-area: header;
+}
+p.tagline-text {
+  grid-area: tagline;
+}
+img {
+  grid-area: image;
+}
+form {
+  grid-area: form;
+}
+.address-container {
+  grid-area: address;
+}
+
+@media (max-width: 800px) {
+  .outer-container {
+    /* rearrange our grid on mobile, now using a 1 column layout */
+    grid-template-areas:
+      "image"
+      "header"
+      "tagline"
+      "form"
+      "address";
+  }
+}
