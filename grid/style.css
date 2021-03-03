@@ -203,3 +203,31 @@ body {
 .grid.center > * {
   width: 200px;
 }
+
+/* Source https://dev.to/bholmesdev/flexbox-diehards-here-s-some-concrete-examples-of-when-css-grid-is-just-better-n7k */
+.masonry {
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(10vh, 50px);
+}
+
+/* Each 4th child starting by the second one is tall */
+.masonry > *:nth-of-type(4n + 2) {
+  grid-row: span 2;
+}
+
+/* Each 4th child starting by the third one is wide */
+.masonry > *:nth-of-type(4n + 3) {
+  grid-column: span 2;
+}
+
+.masonry > .thick {
+  /* let this child span 2 columns (wider than it is tall) */
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.masonry > .tall {
+  /* let this child span 2 rows (taller than it is wide) */
+  grid-row: span 2;
+  grid-column: span 1;
+}
